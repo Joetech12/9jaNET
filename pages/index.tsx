@@ -53,14 +53,12 @@ const Home = ({
       }`}
     >
       <Head>
-        <title>
-          {movie?.title || movie?.original_name || 'Home'} - 9jaNET
-        </title>
+        <title>{movie?.title || movie?.original_name || 'Home'} - 9jaNET</title>
         <link rel="icon" href="/NETFLIX_logo.png" />
       </Head>
 
       <Header />
-      
+
       <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16 ">
         <Banner netflixOriginals={netflixOriginals} />
 
@@ -78,8 +76,12 @@ const Home = ({
         </section>
       </main>
       {showModal && <Modal />}
-      <p className='text-green-500 text-[16px] text-center md:mt-[100px] mt-[80px] md:mb-[10px] pb-[0px]'>Copyright © 2022 - 9jaNET Nigeria</p>
-      <p className='text-white/70 text-[14px] text-center  mt-[10px] md:mb-[40px] pb-[30px]'>Developed by Ifeanyi Umeh</p>
+      <p className="mt-[0px] pb-[0px] text-center text-[16px] text-green-500 md:mt-[100px] md:mb-[10px]">
+        Copyright © 2022 - 9jaNET Nigeria
+      </p>
+      <p className="mt-[10px] pb-[30px] text-center  text-[14px] text-white/70 md:mb-[40px]">
+        Developed by Ifeanyi Umeh
+      </p>
     </div>
   )
 }

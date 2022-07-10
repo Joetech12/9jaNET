@@ -17,7 +17,7 @@ export default function BasicMenu() {
 
   return (
     <div className="md:!hidden">
-      <Button
+      {/* <Button
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
@@ -26,7 +26,7 @@ export default function BasicMenu() {
         className="!capitalize !text-white "
       >
         Browse
-      </Button>
+      </Button> */}
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}

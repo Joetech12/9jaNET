@@ -34,7 +34,7 @@ function Header() {
           </h1>
         </Link>
 
-        <BasicMenu />
+        {/* <BasicMenu /> */}
 
         <ul className="hidden space-x-4 md:flex">
           <Link href="/">
@@ -54,11 +54,11 @@ function Header() {
         {/* <p className="hidden lg:inline">Kids</p> */}
         {/* <BellIcon className="h-6 w-6" /> */}
         <Link href="/account">
-            <button className="cursor-pointer rounded bg-green-700 hover:bg-green-800 duration-300 px-5 mr-[0px] py-2 text-white">
+            <button className="cursor-pointer rounded bg-green-700 hover:bg-green-800 duration-300 px-2 md:px-5 mr-[0px] py-2 text-white">
               Account
             </button>
           </Link>
-            <button onClick={logout} className="cursor-pointer rounded outline outline-1 px-5 py-2 text-white hover:text-white/70 duration-300">
+            <button onClick={logout} className="cursor-pointer rounded outline outline-1 px-2 md:px-5 py-2 text-white hover:text-white/70 duration-300">
               Sign Out
             </button>
       </div>

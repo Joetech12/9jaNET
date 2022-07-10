@@ -5,7 +5,7 @@ import { modalState, movieState } from '../atoms/modalAtom.'
 import Banner from '../components/Banner'
 import Header from '../components/Header'
 import Modal from '../components/Modal'
-import Plans from '../components/Plans'
+// import Plans from '../components/Plans'
 import Row from '../components/Row'
 import useAuth from '../hooks/useAuth'
 import useList from '../hooks/useList'
@@ -35,7 +35,6 @@ const Home = ({
   romanceMovies,
   topRated,
   trendingNow,
-  products,
 }: Props) => {
   const { user, loading } = useAuth()
   // const subscription = useSubscription(user)
@@ -125,7 +124,6 @@ export const getServerSideProps = async () => {
       horrorMovies: horrorMovies.results,
       romanceMovies: romanceMovies.results,
       documentaries: documentaries.results,
-      // products,
     },
   }
 }

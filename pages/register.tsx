@@ -37,7 +37,7 @@ function Register() {
         <link rel="icon" href="/NETFLIX_logo" />
       </Head>
       <Image
-        src="https://rb.gy/p2hphi"
+        src="/background_img.jpg"
         layout="fill"
         className="-z-10  !inline opacity-60"
         objectFit="cover"

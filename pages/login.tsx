@@ -47,7 +47,7 @@ function Login() {
           9jaNET
         </h1>
         <p className="pt-[10px] text-[14px] md:pt-[20px]">
-          From Naija to the World
+          Home of latest trailers
         </p>
       </div>
 

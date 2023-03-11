@@ -102,7 +102,7 @@ function Login() {
             onClick={() => setLogin(false)}
             type="submit"
           >
-            Sign up now
+            Demo Login
           </button>
         </div>
       </form>

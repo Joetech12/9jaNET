@@ -10,7 +10,7 @@ interface Inputs {
   password: string
 }
 
-function Login() {
+function Register() {
   const [login, setLogin] = useState(false)
   const { signIn, signUp } = useAuth()
 
@@ -55,7 +55,7 @@ function Login() {
         className="relative mt-[200px] space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="text-4xl font-semibold">Sign In</h1>
+        <h1 className="text-4xl font-semibold">Register</h1>
         <div className="space-y-4">
           <label className="inline-block w-full">
             <input
@@ -90,18 +90,18 @@ function Login() {
         </div>
         <button
           className="w-full rounded bg-green-700 py-3 font-semibold"
-          onClick={() => setLogin(true)}
+          onClick={() => setLogin(false)}
           type="submit"
         >
-          Sign In
+          Sign Up
         </button>
         <div className="flex justify-between text-[gray]">
-          <p>New to 9jaNET? </p>
-          <Link href='/register'>
+          <p>Already registered to 9jaNET? </p>
+          <Link href='/login'>
               <p
                 className="cursor-pointer text-white hover:underline"
               >
-                Register
+                Sign In
               </p>
           </Link>
         </div>
@@ -110,4 +110,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Register

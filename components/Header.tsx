@@ -51,6 +51,9 @@ function Header() {
           <Link href="/#romance">
             <li className="headerLink">Romance</li>
           </Link>
+          <Link href="/#horror">
+            <li className="headerLink">Horror</li>
+          </Link>
           {/* <li className="headerLink">My List</li> */}
         </ul>
       </div>

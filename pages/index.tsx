@@ -62,18 +62,18 @@ const Home = ({
       <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16 ">
         <Banner netflixOriginals={netflixOriginals} />
 
-        <section className="md:space-y-24">
+        <section className="flex flex-col space-y-[120px] md:space-y-[200px]">
           {/* My List */}
           {list.length > 0 && (
             <Row title="My List" id="my_list" movies={list} />
           )}
           <Row title="Trending Now" id="trending_now" movies={trendingNow} />
           <Row title="Top Rated" id="top_rated" movies={topRated} />
-          <Row title="Action Thrillers" id="action" movies={actionMovies} />
+          <Row title="Action Thriller" id="action" movies={actionMovies} />
 
-          <Row title="Comedies" id="comedies" movies={comedyMovies} />
-          <Row title="Scary Movies" id="scary" movies={horrorMovies} />
-          <Row title="Romance Movies" id="romance" movies={romanceMovies} />
+          <Row title="Comedy" id="comedies" movies={comedyMovies} />
+          <Row title="Horror" id="horror" movies={horrorMovies} />
+          <Row title="Romance" id="romance" movies={romanceMovies} />
           <Row
             title="Documentaries"
             id="documentaries"

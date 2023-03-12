@@ -31,10 +31,10 @@ function Row({ title, movies, id }: Props) {
 
   return (
     <div id={id} className="h-40 space-y-0.5 md:space-y-2">
-      <h2 className="w-56 cursor-pointer text-sm font-semibold text-[#e5e5e5] transition duration-200 my-[10px] hover:text-white md:text-2xl">
+      <h2 className="w-56 cursor-pointer font-semibold text-[#e5e5e5] transition duration-200 my-[10px] hover:text-white text-xl md:text-3xl">
         {title}
       </h2>
-      <div className="group relative md:-ml-2">
+      <div className="group relative md:-ml-2 border-b border-white/20 pb-[20px] md:pb-[30px]">
         <ChevronLeftIcon
           className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
             !isMoved && 'hidden'
@@ -42,7 +42,7 @@ function Row({ title, movies, id }: Props) {
           onClick={() => handleClick('left')}
         />
         <div
-          className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-2.5 md:p-2"
+          className="flex items-center space-x-[10px] md:space-x-[20px] overflow-x-scroll scrollbar-hide  md:p-2"
           ref={rowRef}
         >
           {movies.map((movie) => (

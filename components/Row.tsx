@@ -34,7 +34,7 @@ function Row({ title, movies, id }: Props) {
       <h2 className="w-56 cursor-pointer font-semibold text-[#e5e5e5] transition duration-200 my-[10px] hover:text-white text-xl md:text-3xl">
         {title}
       </h2>
-      <div className="group relative md:-ml-2 border-b border-white/20 pb-[20px] md:pb-[30px]">
+      <div className="group relative md:-ml-2 border-b border-white/20 pb-[30px] md:pb-[40px]">
         <ChevronLeftIcon
           className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
             !isMoved && 'hidden'

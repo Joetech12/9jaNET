@@ -30,7 +30,7 @@ function Header() {
       <div className="flex items-center space-x-2 md:space-x-10">
         <Link href="/">
           <h1 className="cursor-pointer text-4xl font-extrabold text-green-600">
-            9jaNET
+          trailerNET
           </h1>
         </Link>
 

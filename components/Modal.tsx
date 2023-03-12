@@ -186,8 +186,8 @@ function Modal() {
         </div>
         <div className="flex space-x-16 rounded-b-md bg-[#181818] px-10 py-8">
           <div className="space-y-6 text-lg">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center space-x-2 text-sm">
+            <div className="flex flex-col  justify-between md:flex-row">
+              <div className="mb-[20px] flex items-center space-x-2 text-sm md:mb-[0px]">
                 <p className="font-semibold text-green-400">
                   {movie!.vote_average * 10}% Match
                 </p>
@@ -199,25 +199,27 @@ function Modal() {
                 </div>
               </div>
               <div className="flex items-center">
-                <p className="font-light text-sm mr-[10px]">{addedToList ? 'Added' : 'Add'} to your list</p>
-                  <button
-                    className={`flex h-11 w-11 items-center justify-center rounded-full border-2 border-[gray] transition  hover:border-white ${
-                      addedToList
-                        ? 'bg-green-500'
-                        : ' bg-[#2a2a2a]/60  hover:bg-white/10 '
-                    }`}
-                    onClick={handleList}
-                  >
-                    {addedToList ? (
-                      <CheckIcon className="h-7 w-7" />
-                    ) : (
-                      <PlusIcon className="h-7 w-7" />
-                    )}
-                  </button>
+                <p className="mr-[10px] text-sm font-light">
+                  {addedToList ? 'Added' : 'Add'} to My List
+                </p>
+                <button
+                  className={`flex h-9 w-9 items-center justify-center rounded-full border-2 border-[gray] transition hover:border-white md:h-11  md:w-11 ${
+                    addedToList
+                      ? 'bg-green-500'
+                      : ' bg-[#2a2a2a]/60  hover:bg-white/10 '
+                  }`}
+                  onClick={handleList}
+                >
+                  {addedToList ? (
+                    <CheckIcon className="h-5 w-5 md:h-7 md:w-7" />
+                  ) : (
+                    <PlusIcon className="h-5 w-5 md:h-7 md:w-7" />
+                  )}
+                </button>
               </div>
             </div>
             <div className="flex flex-col gap-x-10 gap-y-4 font-light md:flex-row">
-              <p className="w-5/6 text-[16px] md:text-[18px]">
+              <p className="text-[16px] md:w-5/6 md:text-[18px]">
                 {movie?.overview}
               </p>
               <div className="flex flex-col space-y-3 text-sm">

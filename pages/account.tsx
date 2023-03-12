@@ -8,6 +8,8 @@ import Membership from '../components/Membership'
 import useAuth from '../hooks/useAuth'
 import useSubscription from '../hooks/useSubscription'
 import payments, { goToBillingPortal } from '../lib/stripe'
+import { HiOutlineMail } from 'react-icons/hi'
+import { FiExternalLink } from 'react-icons/fi'
 
 interface Props {
   products: Product[]
@@ -25,27 +27,30 @@ function Account({ products }: Props) {
   return (
     <div className="">
       <Head>
-        <title>Account Settings - 9jaNET</title>
+        <title>Account Settings - trailerNET</title>
         <link rel="icon" href="/NETFLIX_logo.png" />
+        <meta
+          name="description"
+          content="Looking for the latest movie trailers and sneak peeks? Browse trailers for all the latest blockbuster hits, Hollywood gems, and everything in between. With our user-friendly interface, stay up-to-date on the hottest movies hitting the big screen with trailerNet!"
+        />
       </Head>
 
       <Header />
       <main className="mx-auto max-w-6xl px-5 pt-[120px] pb-12 transition-all md:px-10 md:pt-[200px]">
-        <div className="flex flex-col gap-x-4 md:flex-row md:items-center">
+        <div className="flex items-center space-x-[10px]">
           <h1 className="text-3xl md:text-4xl">Account</h1>
           <div className="-ml-0.5 flex items-center gap-x-1.5">
             <img src="https://rb.gy/4vfk4r" alt="" className="h-7 w-7" />
             <p className="text-xs font-semibold text-[#555]">
-              Member since {subscription?.created}
+              {/* Member since {subscription?.created} */}Free Premium
             </p>
           </div>
         </div>
 
         <Membership />
 
-        <div className="mt-6 grid grid-cols-1 gap-x-4 border px-4 py-4 md:grid-cols-4 md:border-x-0 md:border-t md:border-b-0 md:px-0 md:pb-0">
+        {/* <div className="mt-6 grid grid-cols-1 gap-x-4 border px-4 py-4 md:grid-cols-4 md:border-x-0 md:border-t md:border-b-0 md:px-0 md:pb-0">
           <h4 className="text-lg text-[gray]">Plan Details</h4>
-          {/* Find the current plan */}
           <div className="col-span-2 font-medium">
             {
               products.filter(
@@ -59,16 +64,38 @@ function Account({ products }: Props) {
           >
             Change plan
           </p>
-        </div>
+        </div> */}
 
-        <div className="mt-6 grid grid-cols-1 gap-x-4 border px-4 py-4 md:grid-cols-4 md:border-x-0 md:border-t md:border-b-0 md:px-0">
-          <h4 className="text-lg text-[gray]">Settings</h4>
-          <p
-            className="col-span-3 cursor-pointer text-green-400 hover:underline"
-            onClick={logout}
-          >
-            Sign out of all devices
-          </p>
+        <div className="flex flex-col justify-between border-t border-b border-white/10 px-4 py-4 md:px-0">
+          <div className="mb-[20px] flex justify-between">
+            <div className=" membershipLink  flex items-center space-x-[5px]">
+              <p className=" ">Developer Info</p>
+            </div>
+            {/* <p className="membershipLink">Change password</p> */}
+            <div className="flex items-center space-x-[5px] text-[gray]">
+              <a
+                href="mailto:info@ifeanyiumeh.com?subject=Enquiry"
+                className=""
+              >
+                info@ifeanyiumeh.com
+              </a>
+            </div>
+          </div>
+          <div className="mb-[20px] flex justify-between">
+            <p className="membershipLink">Developer Website</p>
+            {/* <p className="membershipLink">Change password</p> */}
+            <a
+              href="https://www.ifeanyiumeh.com"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center space-x-[5px] text-[gray]"
+            >
+              <p className="">ifeanyiumeh.com</p>
+              <span className="">
+                <FiExternalLink />
+              </span>
+            </a>
+          </div>
         </div>
       </main>
     </div>

@@ -53,8 +53,13 @@ const Home = ({
       }`}
     >
       <Head>
-        <title>{movie?.title || movie?.original_name || 'Home'} - 9jaNET</title>
+        <title>{movie?.title || movie?.original_name || 'Home'} - trailerNET</title>
         <link rel="icon" href="/NETFLIX_logo.png" />
+        <meta
+          name="description"
+          content="Looking for the latest movie trailers and sneak peeks? Browse trailers for all the latest blockbuster hits, Hollywood gems, and everything in between. With our user-friendly interface, stay up-to-date on the hottest movies hitting the big screen with trailerNet!"
+        />
+        
       </Head>
 
       <Header />
@@ -83,7 +88,7 @@ const Home = ({
       </main>
       {showModal && <Modal />}
       <p className="mt-[50px] pb-[0px] text-center text-green-500 md:mt-[150px] md:mb-[10px] md:text-[16px]">
-        Copyright © 2022 - 9jaNET Nigeria
+        Copyright © 2023 - trailerNET
       </p>
       <p className="mt-[10px] mb-[20px] pb-[30px]  text-center text-[14px] text-white/70 md:mb-[40px]">
         Developed by Ifeanyi Umeh

@@ -33,8 +33,12 @@ function Login() {
   return (
     <div className="relative flex h-screen w-screen flex-col  bg-black/40 md:items-center md:justify-center md:bg-black/20">
       <Head>
-        <title>9jaNET</title>
+        <title>trailerNET</title>
         <link rel="icon" href="/NETFLIX_logo" />
+        <meta
+          name="description"
+          content="Looking for the latest movie trailers and sneak peeks? Browse trailers for all the latest blockbuster hits, Hollywood gems, and everything in between. With our user-friendly interface, stay up-to-date on the hottest movies hitting the big screen with trailerNet!"
+        />
       </Head>
       <Image
         src="/background_img.jpg"
@@ -42,12 +46,12 @@ function Login() {
         className="-z-10  !inline opacity-60"
         objectFit="cover"
       />
-      <div className="absolute top-4 h-20 w-full text-center md:top-4">
+      <div className="absolute top-[40px] h-20 w-full text-center md:top-4">
         <h1 className="text-4xl font-extrabold text-green-500 md:text-5xl">
-          9jaNET
+          trailerNET
         </h1>
-        <p className="pt-[10px] text-[20px] md:pt-[20px]">
-          Home of latest trailers
+        <p className="pt-[10px] text-[20px] md:pt-[10px]">
+          The Home of latest trailers
         </p>
       </div>
 
@@ -55,7 +59,7 @@ function Login() {
         className="relative mt-[200px] space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="text-4xl font-semibold">Sign In</h1>
+        <h1 className="text-center text-4xl font-semibold">Sign In</h1>
         <div className="space-y-4">
           <label className="inline-block w-full">
             <input
@@ -96,16 +100,21 @@ function Login() {
           Sign In
         </button>
         <div className="flex justify-between text-[gray]">
-          <p>New to 9jaNET? </p>
-          <Link href='/register'>
-              <p
-                className="cursor-pointer text-white hover:underline"
-              >
-                Register
-              </p>
+          <p>New to trailerNET? </p>
+          <Link href="/register">
+            <p className="cursor-pointer text-white hover:underline">
+              Register
+            </p>
           </Link>
         </div>
       </form>
+
+      <div className="flex flex-col">
+        
+        <p className="mt-[30px] mb-[0px] pb-[0px]  text-center text-[14px] text-white/70 md:mb-[0px]">
+          Developed by Ifeanyi Umeh
+        </p>
+      </div>
     </div>
   )
 }

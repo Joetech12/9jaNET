@@ -38,7 +38,7 @@ function Header() {
 
         <ul className="hidden space-x-4 md:flex">
           <Link href="/">
-            <li className="headerLink cursor-pointer font-semibold text-white hover:text-white">
+            <li className="headerLink">
               Home
             </li>
           </Link>

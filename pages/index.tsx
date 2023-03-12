@@ -82,7 +82,7 @@ const Home = ({
         </section>
       </main>
       {showModal && <Modal />}
-      <p className="mt-[50px] pb-[0px] text-center text-[16px] text-green-500 md:mt-[100px] md:mb-[10px]">
+      <p className="mt-[50px] pb-[0px] text-center text-green-500 md:mt-[100px] md:mb-[10px] md:text-[16px]">
         Copyright © 2022 - 9jaNET Nigeria
       </p>
       <p className="mt-[10px] mb-[20px] pb-[30px]  text-center text-[14px] text-white/70 md:mb-[40px]">

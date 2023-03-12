@@ -9,7 +9,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <RecoilRoot>
       {/* Higher Order Component */}
       <AuthProvider>
-        <Header />
         <Component {...pageProps} />
       </AuthProvider>
     </RecoilRoot>

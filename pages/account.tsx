@@ -29,7 +29,7 @@ function Account({ products }: Props) {
         <link rel="icon" href="/NETFLIX_logo.png" />
       </Head>
 
-      {/* <Header /> */}
+      <Header />
       <main className="mx-auto max-w-6xl px-5 pt-[120px] pb-12 transition-all md:px-10 md:pt-[200px]">
         <div className="flex flex-col gap-x-4 md:flex-row md:items-center">
           <h1 className="text-3xl md:text-4xl">Account</h1>

@@ -6,6 +6,7 @@ import { modalState, movieState } from '../atoms/modalAtom.'
 import { Movie } from '../typings'
 import { FaHeart, FaPlay, FaRegHeart } from 'react-icons/fa'
 import { BiPlayCircle } from 'react-icons/bi'
+import { AiFillStar } from 'react-icons/ai'
 
 interface Props {
   movie: Movie | DocumentData
@@ -17,7 +18,9 @@ function Thumbnail({ movie }: Props) {
   const [like, setLike] = useState(false)
   const [saved, setSaved] = useState(false)
 
-  console.log(movie)
+  const movieRating = movie?.vote_average.toFixed(1)
+
+//   console.log(movie)
 
   return (
     <>
@@ -52,9 +55,15 @@ function Thumbnail({ movie }: Props) {
               </p>
             </div>
           </div>
-          <p className="... mt-[10px] w-[260px] md:w-[300px] truncate px-[10px] text-[14px] md:text-[16px]">
-            {movie?.title}
-          </p>
+          <div className="flex items-center mt-[10px] w-full justify-between">
+              <p className="...  w-[200px] md:w-[250px] truncate px-[10px] text-[14px] md:text-[16px]">
+                {movie?.title}
+              </p>
+              <div className="flex items-center space-x-[5px]">
+                  <p className="font-thin text-sm">{movieRating}</p>
+                  <AiFillStar className="h-[15px] w-[15px] text-green-500" />
+              </div>
+          </div>
         </div>
       )}
     </>

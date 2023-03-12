@@ -6,6 +6,7 @@ import { FaPlay } from 'react-icons/fa'
 import { modalState, movieState } from '../atoms/modalAtom.'
 import { useRecoilState } from 'recoil'
 import Image from 'next/image'
+import { Element, Genre } from '../typings'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -15,6 +16,7 @@ function Banner({ netflixOriginals }: Props) {
   const [movie, setMovie] = useState<Movie | null>(null)
   const [currentMovie, setCurrentMovie] = useRecoilState(movieState)
   const [showModal, setShowModal] = useRecoilState(modalState)
+  const [trailer, setTrailer] = useState('')
 
   useEffect(() => {
     setMovie(
@@ -29,6 +31,30 @@ function Banner({ netflixOriginals }: Props) {
       return str
     }
   }
+
+  useEffect(() => {
+    if (!movie) return
+
+    async function fetchMovie() {
+      const data = await fetch(
+        `https://api.themoviedb.org/3/${
+          movie?.media_type === 'tv' ? 'tv' : 'movie'
+        }/${movie?.id}?api_key=${
+          process.env.NEXT_PUBLIC_API_KEY
+        }&language=en-US&append_to_response=videos`
+      ).then((response) => response.json())
+      if (data?.videos) {
+        const index = data.videos.results.findIndex(
+          (element: Element) => element.type === 'Trailer'
+        )
+        setTrailer(data.videos?.results[index]?.key)
+      }
+    }
+
+    fetchMovie()
+  }, [movie])
+
+  //   console.log(movie)
 
   return (
     <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
@@ -63,9 +89,12 @@ function Banner({ netflixOriginals }: Props) {
           Play Trailer
         </button>
 
-        <button className="bannerButton bg-[gray]/70 md:text-[18px]">
-          <InformationCircleIcon className="h-5 w-5 md:h-8 md:w-8" /> More Info
-        </button>
+        <a href={`https://www.youtube.com/watch?v=${trailer}`} target="_blank">
+          <button className="bannerButton bg-[gray]/70 md:text-[18px]">
+            <InformationCircleIcon className="h-5 w-5 md:h-8 md:w-8" /> More
+            Info
+          </button>
+        </a>
       </div>
     </div>
   )

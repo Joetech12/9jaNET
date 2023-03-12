@@ -29,7 +29,7 @@ function Modal() {
   const [movie, setMovie] = useRecoilState(movieState)
   const [trailer, setTrailer] = useState('')
   const [showModal, setShowModal] = useRecoilState(modalState)
-  const [muted, setMuted] = useState(true)
+  const [muted, setMuted] = useState(false)
   const [genres, setGenres] = useState<Genre[]>([])
   const [addedToList, setAddedToList] = useState(false)
   const { user } = useAuth()
@@ -151,14 +151,20 @@ function Modal() {
             style={{ position: 'absolute', top: '0', left: '0' }}
             playing
             muted={muted}
+            controls
           />
-          <div className="absolute bottom-10 flex w-full items-center justify-between px-10">
+          {/* <div className="absolute bottom-10 flex w-full items-center justify-between px-10">
             <div className="flex space-x-2">
               <button className="flex items-center gap-x-2 rounded bg-white px-4 text-xl font-bold text-black transition hover:bg-[#e6e6e6]">
                 <FaPlay className="h-5 w-5 text-black" />
                 Play
               </button>
-              <button className="modalButton" onClick={handleList}>
+              <button
+                className={`flex h-11 w-11 items-center justify-center rounded-full border-2 border-[gray] hover:border-white  transition ${
+                  addedToList ? 'bg-green-500' : ' bg-[#2a2a2a]/60  hover:bg-white/10 '
+                }`}
+                onClick={handleList}
+              >
                 {addedToList ? (
                   <CheckIcon className="h-7 w-7" />
                 ) : (
@@ -176,19 +182,38 @@ function Modal() {
                 <VolumeUpIcon className="h-6 w-6" />
               )}
             </button>
-          </div>
+          </div> */}
         </div>
         <div className="flex space-x-16 rounded-b-md bg-[#181818] px-10 py-8">
           <div className="space-y-6 text-lg">
-            <div className="flex items-center space-x-2 text-sm">
-              <p className="font-semibold text-green-400">
-                {movie!.vote_average * 10}% Match
-              </p>
-              <p className="font-light">
-                {movie?.release_date || movie?.first_air_date}
-              </p>
-              <div className="flex h-4 items-center justify-center rounded border border-white/40 px-1.5 text-xs">
-                HD
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-2 text-sm">
+                <p className="font-semibold text-green-400">
+                  {movie!.vote_average * 10}% Match
+                </p>
+                <p className="font-light">
+                  {movie?.release_date || movie?.first_air_date}
+                </p>
+                <div className="flex h-4 items-center justify-center rounded border border-white/40 px-1.5 text-xs">
+                  HD
+                </div>
+              </div>
+              <div className="flex items-center">
+                <p className="font-light text-sm mr-[10px]">{addedToList ? 'Added' : 'Add'} to your list</p>
+                  <button
+                    className={`flex h-11 w-11 items-center justify-center rounded-full border-2 border-[gray] transition  hover:border-white ${
+                      addedToList
+                        ? 'bg-green-500'
+                        : ' bg-[#2a2a2a]/60  hover:bg-white/10 '
+                    }`}
+                    onClick={handleList}
+                  >
+                    {addedToList ? (
+                      <CheckIcon className="h-7 w-7" />
+                    ) : (
+                      <PlusIcon className="h-7 w-7" />
+                    )}
+                  </button>
               </div>
             </div>
             <div className="flex flex-col gap-x-10 gap-y-4 font-light md:flex-row">

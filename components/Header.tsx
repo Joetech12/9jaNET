@@ -42,9 +42,15 @@ function Header() {
               Home
             </li>
           </Link>
-          <li className="headerLink">Nollywood</li>
-          <li className="headerLink">Foreign</li>
-          <li className="headerLink">Soap opera</li>
+          <Link href="/#action">
+            <li className="headerLink">Action</li>
+          </Link>
+          <Link href="/#comedies">
+            <li className="headerLink">Comedies</li>
+          </Link>
+          <Link href="/#romance">
+            <li className="headerLink">Romance</li>
+          </Link>
           {/* <li className="headerLink">My List</li> */}
         </ul>
       </div>
@@ -54,13 +60,16 @@ function Header() {
         {/* <p className="hidden lg:inline">Kids</p> */}
         {/* <BellIcon className="h-6 w-6" /> */}
         <Link href="/account">
-            <button className="cursor-pointer rounded bg-green-700 hover:bg-green-800 duration-300 px-2 md:px-5 mr-[0px] py-2 text-white">
-              Account
-            </button>
-          </Link>
-            <button onClick={logout} className="cursor-pointer rounded outline outline-1 px-2 md:px-5 py-2 text-white hover:text-white/70 duration-300">
-              Sign Out
-            </button>
+          <button className="mr-[0px] cursor-pointer rounded bg-green-700 px-2 py-2 text-white duration-300 hover:bg-green-800 md:px-5">
+            Account
+          </button>
+        </Link>
+        <button
+          onClick={logout}
+          className="cursor-pointer rounded px-2 py-2 text-white outline outline-1 duration-300 hover:text-white/70 md:px-5"
+        >
+          Sign Out
+        </button>
       </div>
     </header>
   )

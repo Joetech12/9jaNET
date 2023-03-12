@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useState } from 'react'
+import Header from '../components/Header'
 import Membership from '../components/Membership'
 import useAuth from '../hooks/useAuth'
 import useSubscription from '../hooks/useSubscription'
@@ -28,40 +29,7 @@ function Account({ products }: Props) {
         <link rel="icon" href="/NETFLIX_logo.png" />
       </Head>
 
-      <header className={`bg-[#0c0c0c]/90`}>
-        <div className="flex items-center">
-          <Link href="/">
-            <h1 className="mr-[30px] cursor-pointer text-4xl font-extrabold text-green-600">
-              9jaNET
-            </h1>
-          </Link>
-          <ul className="hidden space-x-4 md:flex">
-            <Link href="/">
-              <li className="headerLink cursor-pointer font-semibold text-white hover:text-white">
-                Home
-              </li>
-            </Link>
-            <li className="headerLink">Nollywood</li>
-            <li className="headerLink">Foreign</li>
-            <li className="headerLink">Soap opera</li>
-            {/* <li className="headerLink">My List</li> */}
-          </ul>
-        </div>
-
-        <div>
-          {/* <Link href="/account">
-            <button className="mr-[10px] cursor-pointer rounded bg-green-700 px-2 py-2 text-white duration-300  hover:bg-green-800 md:px-5">
-              Account
-            </button>
-          </Link> */}
-          <button
-            onClick={logout}
-            className="cursor-pointer rounded px-2 py-2 text-white outline outline-1 duration-300 hover:text-white/70 md:px-5"
-          >
-            Sign Out
-          </button>
-        </div>
-      </header>
+      {/* <Header /> */}
       <main className="mx-auto max-w-6xl px-5 pt-[120px] pb-12 transition-all md:px-10 md:pt-[200px]">
         <div className="flex flex-col gap-x-4 md:flex-row md:items-center">
           <h1 className="text-3xl md:text-4xl">Account</h1>

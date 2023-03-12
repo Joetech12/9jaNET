@@ -46,7 +46,7 @@ function Register() {
         <h1 className="text-4xl font-extrabold text-green-500 md:text-5xl">
           9jaNET
         </h1>
-        <p className="pt-[10px] text-[14px] md:pt-[20px]">
+        <p className="pt-[10px] text-[20px] md:pt-[20px]">
           Home of latest trailers
         </p>
       </div>

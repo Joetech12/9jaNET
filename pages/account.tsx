@@ -10,6 +10,7 @@ import useSubscription from '../hooks/useSubscription'
 import payments, { goToBillingPortal } from '../lib/stripe'
 import { HiOutlineMail } from 'react-icons/hi'
 import { FiExternalLink } from 'react-icons/fi'
+import { FaUserCog } from 'react-icons/fa'
 
 interface Props {
   products: Product[]
@@ -37,11 +38,11 @@ function Account({ products }: Props) {
 
       <Header />
       <main className="mx-auto max-w-6xl px-5 pt-[120px] pb-12 transition-all md:px-10 md:pt-[200px]">
-        <div className="flex items-center space-x-[10px]">
+        <div className="flex items-center space-x-[20px]">
           <h1 className="text-3xl md:text-4xl">Account</h1>
           <div className="-ml-0.5 flex items-center gap-x-1.5">
-            <img src="https://rb.gy/4vfk4r" alt="" className="h-7 w-7" />
-            <p className="text-xs font-semibold text-[#555]">
+            <FaUserCog className='w-7 h-7' />
+            <p className="text-sm font-semibold text-[#555]">
               {/* Member since {subscription?.created} */}Free Premium
             </p>
           </div>

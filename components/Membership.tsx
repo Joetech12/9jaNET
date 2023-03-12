@@ -16,7 +16,8 @@ function Membership() {
     }
   }
 
-  console.log(subscription)
+//   console.log(subscription)
+  console.log(user)
 
   return (
     <div className="mt-6 grid grid-cols-1 gap-x-4 border px-4 md:grid-cols-4 md:border-x-0 md:border-t md:border-b-0 md:px-0">
@@ -43,8 +44,8 @@ function Membership() {
             <p className="font-medium">{user?.email}</p>
           </div>
           <div className="flex justify-between">
-          <p className="membershipLink">Change password</p>
-            <p className="text-[gray]">Password: ********</p>
+          <p className="membershipLink">Account Created</p>
+            <p className="text-[gray]">{user?.metadata?.creationTime}</p>
           </div>
         </div>
 

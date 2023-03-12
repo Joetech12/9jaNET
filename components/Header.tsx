@@ -4,10 +4,37 @@ import useAuth from '../hooks/useAuth'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import BasicMenu from './BasicMenu'
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { FaUserCog } from 'react-icons/fa'
+import { GoSignOut } from 'react-icons/go'
+import { useRef } from 'react'
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const { user, logout, loading } = useAuth()
+  const [nav, setNav] = useState(true)
+
+  const handleNav = () => {
+    setNav(!nav)
+  }
+
+  const NavMenuRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: Event) => {
+      if (
+        NavMenuRef.current &&
+        !NavMenuRef.current.contains(event.target as Node)
+      ) {
+        setNav(true)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  })
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +57,7 @@ function Header() {
       <div className="flex items-center space-x-2 md:space-x-10">
         <Link href="/">
           <h1 className="cursor-pointer text-4xl font-extrabold text-green-600">
-          trailerNET
+            trailerNET
           </h1>
         </Link>
 
@@ -38,9 +65,7 @@ function Header() {
 
         <ul className="hidden space-x-4 md:flex">
           <Link href="/">
-            <li className="headerLink">
-              Home
-            </li>
+            <li className="headerLink">Home</li>
           </Link>
           <Link href="/#action">
             <li className="headerLink">Action</li>
@@ -58,7 +83,7 @@ function Header() {
         </ul>
       </div>
 
-      <div className="flex items-center space-x-4 text-sm font-light">
+      <div className="hidden items-center space-x-4 text-sm font-light md:flex">
         {/* <SearchIcon className="sm hidden h-6 w-6 sm:inline" /> */}
         {/* <p className="hidden lg:inline">Kids</p> */}
         {/* <BellIcon className="h-6 w-6" /> */}
@@ -73,6 +98,76 @@ function Header() {
         >
           Sign Out
         </button>
+      </div>
+
+      <div
+        onClick={handleNav}
+        className="block cursor-pointer duration-500 ease-in-out md:hidden"
+      >
+        {!nav ? (
+          <AiOutlineClose size={25} className={`${!nav && 'opacity-0'}`} />
+        ) : (
+          <AiOutlineMenu size={25} />
+        )}
+      </div>
+
+      <div
+        ref={NavMenuRef}
+        className={
+          !nav
+            ? 'fixed right-0 top-0 z-50 flex h-full w-[50%] flex-col items-start bg-[#0a0a0a]/90 px-4 duration-300 md:hidden md:w-[30%]'
+            : 'fixed right-[-100%] duration-300'
+        }
+      >
+        <div
+          onClick={handleNav}
+          className="duration-400 z-50 mt-[21px] mb-5 ml-2 cursor-pointer ease-in-out md:mt-[30px]"
+        >
+          <AiOutlineClose size={25} className="hover:text-gray-400" />
+        </div>
+        <ul className=" w-full">
+          <Link href="/">
+            <li className="my-6 cursor-pointer px-4 hover:text-gray-400">
+              Home
+            </li>
+          </Link>
+          <Link href="/#action">
+            <li className="my-6 cursor-pointer px-4 hover:text-gray-400">
+              Action
+            </li>
+          </Link>
+          <Link href="/#comedies">
+            <li className="my-6 cursor-pointer px-4 hover:text-gray-400">
+              Comedies
+            </li>
+          </Link>
+          <Link href="/#romance">
+            <li className="my-6 cursor-pointer px-4 hover:text-gray-400">
+              Romance
+            </li>
+          </Link>
+          <Link href="/#horror">
+            <li className="my-6 cursor-pointer px-4 hover:text-gray-400">
+              Horror
+            </li>
+          </Link>
+          <Link href="/#documentaries">
+            <li className="my-6 cursor-pointer border-b-[1px] border-gray-600 px-4 pb-[20px] hover:text-gray-400 ">
+              Documentaries
+            </li>
+          </Link>
+          <Link href="/account">
+            <li className="my-6 flex  cursor-pointer items-center border-gray-600 px-4 hover:text-gray-400">
+              Account <FaUserCog className="ml-[10px] h-4 w-4" />
+            </li>
+          </Link>
+          <li
+            onClick={logout}
+            className="my-6 flex cursor-pointer items-center border-gray-600 px-4  hover:text-gray-400 "
+          >
+            Sign Out <GoSignOut className="ml-[10px] h-4 w-4" />
+          </li>
+        </ul>
       </div>
     </header>
   )

@@ -54,7 +54,7 @@ function Register() {
         className="-z-10  !inline opacity-60"
         objectFit="cover"
       />
-      <div className="absolute top-4 h-20 w-full text-center md:top-4">
+      <div className="absolute top-[40px] h-20 w-full text-center md:top-4">
         <h1 className="text-4xl font-extrabold text-green-500 md:text-5xl">
           trailerNET
         </h1>
@@ -101,11 +101,14 @@ function Register() {
           </label>
         </div>
         <button
-          className="w-full rounded bg-green-700 py-3 font-semibold flex items-center justify-center"
+          className="flex w-full items-center justify-center rounded bg-green-700 py-3 font-semibold"
           onClick={buttonHandler}
           type="submit"
         >
-          Sign Up <span className="ml-[10px]">{showSpinner && loading && <Spinner />}</span>
+          Sign Up{' '}
+          <span className="ml-[10px]">
+            {showSpinner && loading && <Spinner />}
+          </span>
         </button>
         <div className="flex justify-between text-[gray]">
           <p>Already registered to trailerNET? </p>

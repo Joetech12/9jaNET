@@ -127,7 +127,7 @@ function Login() {
 
       <div className="flex flex-col">
         <p className="mt-[30px] mb-[0px] pb-[0px]  text-center text-[14px] text-white/70 md:mb-[0px]">
-          Developed by Ifeanyi Umeh
+          Developed by Ifeanyi Umeh © 2023
         </p>
       </div>
     </div>

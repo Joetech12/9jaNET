@@ -85,7 +85,7 @@ function Banner({ netflixOriginals }: Props) {
           }}
           className="bannerButton bg-white text-black md:text-[18px]"
         >
-          <FaPlay className="h-4 w-4 text-black md:h-6 md:w-6" />
+          <FaPlay className="h-[12px] w-[12px] text-black md:h-5 md:w-5" />
           Play Trailer
         </button>
 

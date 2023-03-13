@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import Spinner from '../components/Spinner'
 import useAuth from '../hooks/useAuth'
 
 interface Inputs {
@@ -12,7 +13,8 @@ interface Inputs {
 
 function Register() {
   const [login, setLogin] = useState(false)
-  const { signIn, signUp } = useAuth()
+  const [showSpinner, setShowSpinner] = useState(false)
+  const { signIn, signUp, loading } = useAuth()
 
   const {
     register,
@@ -28,6 +30,12 @@ function Register() {
     } else {
       await signUp(data.email, data.password)
     }
+  }
+
+  const buttonHandler = () => {
+    setShowSpinner(true)
+
+    setLogin(false)
   }
 
   return (
@@ -93,11 +101,11 @@ function Register() {
           </label>
         </div>
         <button
-          className="w-full rounded bg-green-700 py-3 font-semibold"
-          onClick={() => setLogin(false)}
+          className="w-full rounded bg-green-700 py-3 font-semibold flex items-center justify-center"
+          onClick={buttonHandler}
           type="submit"
         >
-          Sign Up
+          Sign Up <span className="ml-[10px]">{showSpinner && loading && <Spinner />}</span>
         </button>
         <div className="flex justify-between text-[gray]">
           <p>Already registered to trailerNET? </p>

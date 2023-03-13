@@ -8,7 +8,15 @@ import {
 
 import { useRouter } from 'next/router'
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { useRecoilState } from 'recoil'
+import {
+  modalState,
+  movieState,
+  
+} from '../atoms/modalAtom.'
 import { auth } from '../firebase'
+
+
 
 interface IAuth {
   user: User | null
@@ -59,6 +67,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   )
 
   const signUp = async (email: string, password: string) => {
+    
     setLoading(true)
 
     await createUserWithEmailAndPassword(auth, email, password)

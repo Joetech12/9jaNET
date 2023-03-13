@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { useRecoilState } from 'recoil'
+import Spinner from '../components/Spinner'
 import useAuth from '../hooks/useAuth'
 
 interface Inputs {
@@ -12,7 +14,9 @@ interface Inputs {
 
 function Login() {
   const [login, setLogin] = useState(false)
-  const { signIn, signUp } = useAuth()
+  const [showSpinner, setShowSpinner] = useState(false)
+  const [message, setMessage] = useState<string | null>('')
+  const { signIn, signUp, loading, error } = useAuth()
 
   const {
     register,
@@ -22,12 +26,20 @@ function Login() {
   } = useForm<Inputs>()
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    console.log(data)
+    // console.log(data)
     if (login) {
       await signIn(data.email, data.password)
+      //   setMessage(error)
     } else {
       await signUp(data.email, data.password)
+      //   setMessage(error)
     }
+  }
+
+  const buttonHandler = () => {
+    setShowSpinner(true)
+
+    setLogin(true)
   }
 
   return (
@@ -93,12 +105,16 @@ function Login() {
           </label>
         </div>
         <button
-          className="w-full rounded bg-green-700 py-3 font-semibold"
-          onClick={() => setLogin(true)}
+          className="flex w-full items-center justify-center rounded bg-green-700 py-3 font-semibold"
+          onClick={buttonHandler}
           type="submit"
         >
-          Sign In
+          Sign In{' '}
+          <span className="ml-[10px]">
+            {showSpinner && loading && <Spinner />}
+          </span>
         </button>
+        {message && <p className="text-red-500">{message}</p>}
         <div className="flex justify-between text-[gray]">
           <p>New to trailerNET? </p>
           <Link href="/register">
@@ -110,7 +126,6 @@ function Login() {
       </form>
 
       <div className="flex flex-col">
-        
         <p className="mt-[30px] mb-[0px] pb-[0px]  text-center text-[14px] text-white/70 md:mb-[0px]">
           Developed by Ifeanyi Umeh
         </p>

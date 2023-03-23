@@ -4,6 +4,9 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useRecoilState } from 'recoil'
+import {
+  loginErrorState,
+} from '../atoms/modalAtom.'
 import Spinner from '../components/Spinner'
 import useAuth from '../hooks/useAuth'
 
@@ -14,8 +17,8 @@ interface Inputs {
 
 function Login() {
   const [login, setLogin] = useState(false)
+  const [loginError, setLoginError] = useRecoilState(loginErrorState)
   const [showSpinner, setShowSpinner] = useState(false)
-  const [message, setMessage] = useState<string | null>('')
   const { signIn, signUp, loading, error } = useAuth()
 
   const {
@@ -43,7 +46,7 @@ function Login() {
   }
 
   return (
-    <div className="relative flex h-screen w-screen flex-col  md:items-center md:justify-center bg-black/10">
+    <div className="relative flex h-screen w-screen flex-col  bg-black/10 md:items-center md:justify-center">
       <Head>
         <title>trailerNET</title>
         <link rel="icon" href="/NETFLIX_logo" />
@@ -114,7 +117,7 @@ function Login() {
             {showSpinner && loading && <Spinner />}
           </span>
         </button>
-        {message && <p className="text-red-500">{message}</p>}
+        {loginError && <p className="text-orange-500 text-center text-[15px]">{loginError}</p>}
         <div className="flex justify-between text-[gray]">
           <p>New to trailerNET? </p>
           <Link href="/register">

@@ -14,10 +14,10 @@ export const movieState = atom<Movie | DocumentData | null>({
 
 export const loginErrorState = atom({
   key: 'loginErrorState',
-  default: false,
+  default: null,
 })
 
 export const signupErrorState = atom({
   key: 'signupErrorState',
-  default: false,
+  default: null,
 })

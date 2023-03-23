@@ -71,7 +71,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         router.push('/')
         setLoading(false)
       })
-      .catch((error) => setLoginError(true))
+      .catch((error) => setSignupError(error.message))
       .finally(() => setLoading(false))
   }
 
@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         router.push('/')
         setLoading(false)
       })
-      .catch((error) => alert(error.message))
+      .catch((error) => setLoginError(error.message))
       .finally(() => setLoading(false))
   }
 

@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useRecoilState } from 'recoil'
+import { signupErrorState } from '../atoms/modalAtom.'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import Spinner from '../components/Spinner'
 import useAuth from '../hooks/useAuth'
@@ -13,6 +15,7 @@ interface Inputs {
 
 function Register() {
   const [login, setLogin] = useState(false)
+  const [signupError, setSignupError] = useRecoilState(signupErrorState)
   const [showSpinner, setShowSpinner] = useState(false)
   const { signIn, signUp, loading } = useAuth()
 
@@ -39,7 +42,7 @@ function Register() {
   }
 
   return (
-    <div className="relative flex h-screen w-screen flex-col   md:items-center md:justify-center bg-black/10">
+    <div className="relative flex h-screen w-screen flex-col   bg-black/10 md:items-center md:justify-center">
       <Head>
         <title>trailerNET</title>
         <link rel="icon" href="/NETFLIX_logo" />
@@ -116,6 +119,9 @@ function Register() {
             {showSpinner && loading && <Spinner />}
           </span>
         </button>
+        {signupError && (
+          <p className="text-center text-orange-500 text-[15px]">{signupError}</p>
+        )}
         <div className="flex justify-between text-[gray]">
           <p>Already registered to trailerNET? </p>
           <Link href="/login">

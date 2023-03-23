@@ -43,7 +43,7 @@ function Login() {
   }
 
   return (
-    <div className="relative flex h-screen w-screen flex-col  bg-black/40 md:items-center md:justify-center md:bg-black/20">
+    <div className="relative flex h-screen w-screen flex-col  md:items-center md:justify-center bg-black/10">
       <Head>
         <title>trailerNET</title>
         <link rel="icon" href="/NETFLIX_logo" />
@@ -55,20 +55,20 @@ function Login() {
       <Image
         src="/background_img.jpg"
         layout="fill"
-        className="-z-10  !inline opacity-60"
+        className="-z-10  !inline opacity-40"
         objectFit="cover"
       />
-      <div className="absolute top-[40px] h-20 w-full text-center md:top-4">
+      <div className="mt-[50px] w-full text-center md:mt-[0]">
         <h1 className="text-4xl font-extrabold text-green-500 md:text-5xl">
           trailerNET
         </h1>
-        <p className="pt-[10px] text-[20px] md:pt-[10px]">
+        <p className="mb-[20px] pt-[10px] text-[20px] md:pt-[10px]">
           The Home of latest trailers
         </p>
       </div>
 
       <form
-        className="relative mt-[200px] space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
+        className="relative mt-[0px] space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="text-center text-4xl font-semibold">Sign In</h1>

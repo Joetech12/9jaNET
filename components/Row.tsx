@@ -36,7 +36,7 @@ function Row({ title, movies, id }: Props) {
       </h2>
       <div className="group relative border-b border-white/20 pb-[30px] md:-ml-2 md:pb-[40px]">
         <ChevronLeftIcon
-          className={`absolute top-[33%] left-2 z-40 h-10  w-10 cursor-pointer text-green-300 opacity-0 transition hover:scale-125 group-hover:opacity-100 ${
+          className={`absolute top-[33%] left-2 z-40 h-10  w-10 cursor-pointer text-green-300 opacity-0 transition hover:scale-125 group-hover:opacity-100 hover:bg-green-700/60 hover:text-white rounded-full ${
             !isMoved && 'hidden'
           }`}
           onClick={() => handleClick('left')}
@@ -50,7 +50,7 @@ function Row({ title, movies, id }: Props) {
           ))}
         </div>
         <ChevronRightIcon
-          className="absolute top-[33%] right-2  z-40 h-10  w-10 cursor-pointer text-green-300 opacity-0 transition hover:scale-125 group-hover:opacity-100"
+          className="absolute top-[33%] right-2  z-40 h-10  w-10 cursor-pointer text-green-300 opacity-0 transition hover:scale-125 group-hover:opacity-100 hover:bg-green-700/60 hover:text-white rounded-full"
           onClick={() => handleClick('right')}
         />
       </div>

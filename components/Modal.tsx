@@ -126,6 +126,9 @@ function Modal() {
     }
   }
 
+//   const movieRatingPercent = movie?.vote_average.toFixed(1)
+  const movieRatingPercent = (movie!.vote_average * 10).toFixed(0)
+
   console.log(addedToList)
 
   return (
@@ -189,7 +192,7 @@ function Modal() {
             <div className="flex flex-col  justify-between md:flex-row">
               <div className="mb-[20px] flex items-center space-x-2 text-sm md:mb-[0px]">
                 <p className="font-semibold text-green-400">
-                  {movie!.vote_average * 10}% Match
+                  {movieRatingPercent}% Match
                 </p>
                 <p className="font-light">
                   {movie?.release_date || movie?.first_air_date}

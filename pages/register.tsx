@@ -120,7 +120,9 @@ function Register() {
           </span>
         </button>
         {signupError && (
-          <p className="text-center text-orange-500 text-[15px]">{signupError}</p>
+          <p className="text-center text-[15px] text-orange-500">
+            {signupError}
+          </p>
         )}
         <div className="flex justify-between text-[gray]">
           <p>Already registered to trailerNET? </p>

@@ -20,21 +20,23 @@ interface Props {
   topRated: Movie[]
   actionMovies: Movie[]
   comedyMovies: Movie[]
-  horrorMovies: Movie[]
-  romanceMovies: Movie[]
-  documentaries: Movie[]
+  warMovies: Movie[]
+  drama: Movie[]
+  scienceMovies: Movie[]
+  adventureMovies: Movie[]
   // products: Product[]
 }
 
 const Home = ({
   netflixOriginals,
+  trendingNow,
+  topRated,
   actionMovies,
   comedyMovies,
-  documentaries,
-  horrorMovies,
-  romanceMovies,
-  topRated,
-  trendingNow,
+  warMovies,
+  drama,
+  scienceMovies,
+  adventureMovies,
 }: Props) => {
   const { user, loading } = useAuth()
   // const subscription = useSubscription(user)
@@ -53,13 +55,14 @@ const Home = ({
       }`}
     >
       <Head>
-        <title>{movie?.title || movie?.original_name || 'Home'} - trailerNET</title>
+        <title>
+          {movie?.title || movie?.original_name || 'Home'} - trailerNET
+        </title>
         <link rel="icon" href="/NETFLIX_logo.png" />
         <meta
           name="description"
           content="Looking for the latest movie trailers and sneak peeks? Browse trailers for all the latest blockbuster hits, Hollywood gems, and everything in between. With our user-friendly interface, stay up-to-date on the hottest movies hitting the big screen with trailerNet!"
         />
-        
       </Head>
 
       <Header />
@@ -76,14 +79,11 @@ const Home = ({
           <Row title="Top Rated" id="top_rated" movies={topRated} />
           <Row title="Action Thriller" id="action" movies={actionMovies} />
 
-          <Row title="Comedy" id="comedies" movies={comedyMovies} />
-          <Row title="Horror" id="horror" movies={horrorMovies} />
-          <Row title="Romance" id="romance" movies={romanceMovies} />
-          <Row
-            title="Documentaries"
-            id="documentaries"
-            movies={documentaries}
-          />
+          <Row title="Adventure" id="adventure" movies={adventureMovies} />
+          <Row title="Science" id="science" movies={scienceMovies} />
+          <Row title="Comedy" id="comedy" movies={comedyMovies} />
+          <Row title="Drama" id="drama" movies={drama} />
+          <Row title="War Action" id="war" movies={warMovies} />
         </section>
       </main>
       {showModal && <Modal />}
@@ -113,18 +113,21 @@ export const getServerSideProps = async () => {
     topRated,
     actionMovies,
     comedyMovies,
-    horrorMovies,
-    romanceMovies,
-    documentaries,
+    warMovies,
+    drama,
+    scienceMovies,
+    adventureMovies,
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
     fetch(requests.fetchTopRated).then((res) => res.json()),
     fetch(requests.fetchActionMovies).then((res) => res.json()),
     fetch(requests.fetchComedyMovies).then((res) => res.json()),
-    fetch(requests.fetchHorrorMovies).then((res) => res.json()),
-    fetch(requests.fetchRomanceMovies).then((res) => res.json()),
-    fetch(requests.fetchDocumentaries).then((res) => res.json()),
+    // fetch(requests.fetchHorrorMovies).then((res) => res.json()),
+    fetch(requests.fetchWarMovies).then((res) => res.json()),
+    fetch(requests.fetchDrama).then((res) => res.json()),
+    fetch(requests.fetchScienceMovies).then((res) => res.json()),
+    fetch(requests.fetchAdventureMovies).then((res) => res.json()),
   ])
 
   return {
@@ -134,9 +137,10 @@ export const getServerSideProps = async () => {
       topRated: topRated.results,
       actionMovies: actionMovies.results,
       comedyMovies: comedyMovies.results,
-      horrorMovies: horrorMovies.results,
-      romanceMovies: romanceMovies.results,
-      documentaries: documentaries.results,
+      warMovies: warMovies.results,
+      drama: drama.results,
+      scienceMovies: scienceMovies.results,
+      adventureMovies: adventureMovies.results,
     },
   }
 }

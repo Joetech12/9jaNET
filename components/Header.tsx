@@ -70,14 +70,20 @@ function Header() {
           <Link href="/#action">
             <li className="headerLink">Action</li>
           </Link>
-          <Link href="/#comedies">
+          <Link href="/#comedy">
             <li className="headerLink">Comedies</li>
           </Link>
-          <Link href="/#romance">
-            <li className="headerLink">Romance</li>
+          <Link href="/#adventure">
+            <li className="headerLink">Adventure</li>
           </Link>
-          <Link href="/#horror">
-            <li className="headerLink">Horror</li>
+          <Link href="/#war">
+            <li className="headerLink">War</li>
+          </Link>
+          <Link href="/#science">
+            <li className="headerLink">Science</li>
+          </Link>
+          <Link href="/#drama">
+            <li className="headerLink">Drama</li>
           </Link>
           {/* <li className="headerLink">My List</li> */}
         </ul>
@@ -136,24 +142,29 @@ function Header() {
               Action
             </li>
           </Link>
-          <Link href="/#comedies">
+          <Link href="/#comedy">
             <li className="my-6 cursor-pointer px-4 hover:text-gray-400">
               Comedies
             </li>
           </Link>
-          <Link href="/#romance">
+          <Link href="/#adventure">
             <li className="my-6 cursor-pointer px-4 hover:text-gray-400">
-              Romance
+              Adventure
             </li>
           </Link>
-          <Link href="/#horror">
+          <Link href="/#war">
             <li className="my-6 cursor-pointer px-4 hover:text-gray-400">
-              Horror
+              War
             </li>
           </Link>
-          <Link href="/#documentaries">
+          <Link href="/#science">
+            <li className="my-6 cursor-pointer px-4 hover:text-gray-400">
+              Science
+            </li>
+          </Link>
+          <Link href="/#drama">
             <li className="my-6 cursor-pointer border-b-[1px] border-gray-600 px-4 pb-[20px] hover:text-gray-400 ">
-              Documentaries
+              Drama
             </li>
           </Link>
           <Link href="/account">

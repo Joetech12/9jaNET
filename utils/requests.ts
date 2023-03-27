@@ -12,7 +12,7 @@ const requests = {
   fetchScienceMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=878`,
   fetchAdventureMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=12`,
   //   fetchCrimeMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=80`,
-  //   fetchHorrorMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=27`,
+    fetchHorrorMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=27`,
   //   fetchFamilyMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=10751`,
   //   fetchFantasyMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=14`,
 

@@ -24,6 +24,7 @@ interface Props {
   drama: Movie[]
   scienceMovies: Movie[]
   adventureMovies: Movie[]
+  horrorMovies: Movie[]
   // products: Product[]
 }
 
@@ -37,6 +38,7 @@ const Home = ({
   drama,
   scienceMovies,
   adventureMovies,
+  horrorMovies,
 }: Props) => {
   const { user, loading } = useAuth()
   // const subscription = useSubscription(user)
@@ -84,6 +86,7 @@ const Home = ({
           <Row title="Comedy" id="comedy" movies={comedyMovies} />
           <Row title="Drama" id="drama" movies={drama} />
           <Row title="War Action" id="war" movies={warMovies} />
+          <Row title="Horror" id="horror" movies={horrorMovies} />
         </section>
       </main>
       {showModal && <Modal />}
@@ -117,6 +120,7 @@ export const getServerSideProps = async () => {
     drama,
     scienceMovies,
     adventureMovies,
+    horrorMovies,
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
@@ -128,6 +132,7 @@ export const getServerSideProps = async () => {
     fetch(requests.fetchDrama).then((res) => res.json()),
     fetch(requests.fetchScienceMovies).then((res) => res.json()),
     fetch(requests.fetchAdventureMovies).then((res) => res.json()),
+    fetch(requests.fetchHorrorMovies).then((res) => res.json()),
   ])
 
   return {
@@ -141,6 +146,7 @@ export const getServerSideProps = async () => {
       drama: drama.results,
       scienceMovies: scienceMovies.results,
       adventureMovies: adventureMovies.results,
+      horrorMovies: horrorMovies.results,
     },
   }
 }

@@ -63,7 +63,7 @@ function Header() {
 
         {/* <BasicMenu /> */}
 
-        <ul className="hidden space-x-4 md:flex">
+        <ul className="hidden space-x-4 lg:flex">
           <Link href="/">
             <li className="headerLink">Home</li>
           </Link>
@@ -71,7 +71,7 @@ function Header() {
             <li className="headerLink">Action</li>
           </Link>
           <Link href="/#comedy">
-            <li className="headerLink">Comedies</li>
+            <li className="headerLink">Comedy</li>
           </Link>
           <Link href="/#adventure">
             <li className="headerLink">Adventure</li>
@@ -85,11 +85,14 @@ function Header() {
           <Link href="/#drama">
             <li className="headerLink">Drama</li>
           </Link>
+          <Link href="/#horror">
+            <li className="headerLink">Horror</li>
+          </Link>
           {/* <li className="headerLink">My List</li> */}
         </ul>
       </div>
 
-      <div className="hidden items-center space-x-4 text-sm font-light md:flex">
+      <div className="hidden items-center space-x-4 text-sm font-light lg:flex">
         {/* <SearchIcon className="sm hidden h-6 w-6 sm:inline" /> */}
         {/* <p className="hidden lg:inline">Kids</p> */}
         {/* <BellIcon className="h-6 w-6" /> */}
@@ -108,7 +111,7 @@ function Header() {
 
       <div
         onClick={handleNav}
-        className="block cursor-pointer duration-500 ease-in-out md:hidden"
+        className="block cursor-pointer duration-500 ease-in-out lg:hidden"
       >
         {!nav ? (
           <AiOutlineClose size={25} className={`${!nav && 'opacity-0'}`} />
@@ -121,7 +124,7 @@ function Header() {
         ref={NavMenuRef}
         className={
           !nav
-            ? 'fixed right-0 top-0 z-50 flex h-full w-[50%] flex-col items-start bg-[#0a0a0a]/90 px-4 duration-300 md:hidden md:w-[30%]'
+            ? 'fixed right-0 top-0 z-50 flex h-full w-[50%] flex-col items-start bg-[#0a0a0a]/90 px-4 duration-300 md:w-[30%] lg:hidden'
             : 'fixed right-[-100%] duration-300'
         }
       >
@@ -144,7 +147,7 @@ function Header() {
           </Link>
           <Link href="/#comedy">
             <li className="my-6 cursor-pointer px-4 hover:text-gray-400">
-              Comedies
+              Comedy
             </li>
           </Link>
           <Link href="/#adventure">
@@ -163,8 +166,13 @@ function Header() {
             </li>
           </Link>
           <Link href="/#drama">
-            <li className="my-6 cursor-pointer border-b-[1px] border-gray-600 px-4 pb-[20px] hover:text-gray-400 ">
+            <li className="my-6 cursor-pointer px-4 hover:text-gray-400">
               Drama
+            </li>
+          </Link>
+          <Link href="/#horror">
+            <li className="my-6 cursor-pointer border-b-[1px] border-gray-600 px-4 pb-[20px] hover:text-gray-400 ">
+              Horror
             </li>
           </Link>
           <Link href="/account">

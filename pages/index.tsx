@@ -80,13 +80,16 @@ const Home = ({
           <Row title="Trending Now" id="trending_now" movies={trendingNow} />
           <Row title="Top Rated" id="top_rated" movies={topRated} />
           <Row title="Action Thriller" id="action" movies={actionMovies} />
-
-          <Row title="Adventure" id="adventure" movies={adventureMovies} />
-          <Row title="Science" id="science" movies={scienceMovies} />
           <Row title="Comedy" id="comedy" movies={comedyMovies} />
-          <Row title="Drama" id="drama" movies={drama} />
-          <Row title="War Action" id="war" movies={warMovies} />
           <Row title="Horror" id="horror" movies={horrorMovies} />
+          <Row title="Adventure" id="adventure" movies={adventureMovies} />
+          <Row title="War Action" id="war" movies={warMovies} />
+          <Row title="Drama" id="drama" movies={drama} />
+          <Row title="Science" id="science" movies={scienceMovies} />
+
+          
+
+          
         </section>
       </main>
       {showModal && <Modal />}

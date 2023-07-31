@@ -121,7 +121,7 @@ function Register() {
         </button>
         {signupError && (
           <p className="text-center text-[15px] text-orange-500">
-            {signupError}
+            Email already in use
           </p>
         )}
         <div className="flex justify-between text-[gray]">

@@ -117,7 +117,7 @@ function Login() {
             {showSpinner && loading && <Spinner />}
           </span>
         </button>
-        {loginError && <p className="text-orange-500 text-center text-[15px]">{loginError}</p>}
+        {loginError && <p className="text-orange-500 text-center text-[15px]">Invalid Email / Password</p>}
         <div className="flex justify-between text-[gray]">
           <p>New to trailerNET? </p>
           <Link href="/register">

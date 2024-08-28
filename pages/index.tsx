@@ -46,6 +46,8 @@ const Home = ({
   const movie = useRecoilValue(movieState)
   const list = useList(user?.uid)
 
+  if (!user) return null
+
   // if (loading || subscription === null) return null
 
   // if (!subscription) return <Plans products={products} />
@@ -86,10 +88,6 @@ const Home = ({
           <Row title="War Action" id="war" movies={warMovies} />
           <Row title="Drama" id="drama" movies={drama} />
           <Row title="Science" id="science" movies={scienceMovies} />
-
-          
-
-          
         </section>
       </main>
       {showModal && <Modal />}
